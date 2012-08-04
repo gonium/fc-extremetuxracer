@@ -54,6 +54,8 @@ GameOver::GameOver()
     halt_sound( "ice_sound" );
     halt_sound( "snow_sound" );
 
+    std::cout << "GameOver: Constructor" << std::endl;
+
 	if( Benchmark::getMode() != Benchmark::NONE ){
 		Benchmark::displayState();
 		winsys_exit( 0 );

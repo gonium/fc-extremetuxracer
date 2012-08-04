@@ -286,8 +286,8 @@ int main( int argc, char *argv[] )
 	
 	Highscore->loadData();
 	/*debug highscore:*/
-	//Highscore->debug();
-	//Highscore->printlist();
+//	Highscore->debug();
+//	Highscore->printlist();
 
      GameMode::mode = NO_MODE;
 	
@@ -301,6 +301,8 @@ int main( int argc, char *argv[] )
 	
 	winsys_show_cursor( false );
 
+
+  std::cout << "Initialization complete." << std::endl;
 	/* 
      * ...and off we go!
      */

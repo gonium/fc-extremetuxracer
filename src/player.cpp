@@ -102,6 +102,7 @@ PlayerEventData::clearCupData(std::string cup)
 void
 PlayerEventData::saveData(std::ofstream& sfile)
 {
+  std::cout << "PlayerEventData: saveData" << std::endl;
 	sfile << won << std::endl;
 	sfile << cups.size() << std::endl;
 	if(cups.size()>0){	
@@ -324,6 +325,7 @@ Player::updateOpenCourseData(std::string course, double time,
 bool
 Player::saveData()
 {
+  std::cout << "Player: saveData()" << std::endl;
 	char buff[256];
 
     if (get_config_dir_name( buff, 255 ) != 0) {

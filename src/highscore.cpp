@@ -151,6 +151,8 @@ highscore::fromOutputFormat(std::string str) {
 bool
 highscore::saveData()
 {
+  std::cout << "Highscore: saveData()" << std::endl;
+  std::cout << level_hs[0].post[0].score << std::endl;
 	if(!anyHighscore) {
 		//std::cout << "No highscore to write, skipping"<<std::endl;
 		return true;
