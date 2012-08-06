@@ -117,7 +117,8 @@ void main_loop()
         GameMode::currentMode = new Credits();
         break;
       case CONFIGURATION:
-        GameMode::currentMode = new Configuration();
+        //GameMode::currentMode = new Configuration();
+        GameMode::currentMode = new Loading();
         break;
       case RACE_SELECT:
         GameMode::currentMode = new RaceSelect();
