@@ -85,6 +85,8 @@ etracer_SOURCES =				\
         game_type_select.h			\
         game_over.cpp				\
         game_over.h				\
+        fc_infoscreen.h				\
+        fc_infoscreen.cpp				\
 	gl_util.cpp				\
 	gl_util.h				\
 	hier.cpp				\

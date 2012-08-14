@@ -60,7 +60,8 @@ typedef enum {
 	QUIT,
 	BENCHMARK,
     NUM_GAME_MODES,
-    HIGHSCORE
+    HIGHSCORE,
+      FC_INFOSCREEN=99
 } game_mode_t;
 
 void set_game_mode( game_mode_t mode );

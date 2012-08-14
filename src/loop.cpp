@@ -43,6 +43,7 @@
 #include "event_race_select.h"
 #include "bench.h"
 #include "highscore.h"
+#include "fc_infoscreen.h"
 
 #include "configuration.h"
 #include "graphicsconfig.h"
@@ -99,12 +100,14 @@ void main_loop()
     }
     GameMode::prevmode = GameMode::mode;
 
-    std::cout << "Game mode is: " << new_mode << std::endl;
 
     if (GameMode::prevmode == GAME_OVER) {
-      std::cout << "Game over detected - setting new mode to LOADING" << std::endl;
-      new_mode = LOADING;
+      std::cout << "Game over detected - setting new mode to FC_INFOSCREEN" << std::endl;
+      new_mode = FC_INFOSCREEN;
     }
+
+    std::cout << "Old game mode is: " << GameMode::prevmode << std::endl;
+    std::cout << "New game mode is: " << new_mode<< std::endl;
 
     switch(new_mode){
       case SPLASH:
@@ -117,6 +120,7 @@ void main_loop()
         GameMode::currentMode = new Credits();
         break;
       case CONFIGURATION:
+        // Patch MD: disable configuration dialog
         //GameMode::currentMode = new Configuration();
         GameMode::currentMode = new Loading();
         break;
@@ -166,6 +170,9 @@ void main_loop()
         GameMode::currentMode = new Benchmark();
       case HIGHSCORE:
         GameMode::currentMode = new HighscoreShow();
+        break;
+      case FC_INFOSCREEN:
+        GameMode::currentMode = new FCInfoScreen();
         break;
       default:{}
               //todo: add fallback			
