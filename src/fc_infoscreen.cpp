@@ -86,6 +86,7 @@ FCInfoScreen::loop(float timeStep)
 bool
 FCInfoScreen::mouseButtonReleaseEvent(int button, int x, int y)
 {
+  //std::cout << "Button " << button << " pressed." << std::endl;
 	set_game_mode( FC_INFOSCREEN );
 	winsys_post_redisplay();
 	return true;
@@ -97,16 +98,23 @@ FCInfoScreen::keyReleaseEvent(SDLKey key)
   switch(key){
     case SDLK_LEFT:
       std::cout << "LEFT" << std::endl;
+      set_game_mode( FC_INFOSCREEN );
       break;
     case SDLK_RIGHT:
       std::cout << "RIGHT" << std::endl;
+      set_game_mode( FC_INFOSCREEN );
       break;
     case SDLK_UP:
       std::cout << "UP" << std::endl;
-      set_game_mode( LOADING );
+      set_game_mode( FC_INFOSCREEN );
       break;
     case SDLK_DOWN:
       std::cout << "DOWN" << std::endl;
+      set_game_mode( FC_INFOSCREEN );
+      break;
+    case SDLK_a:
+      std::cout << "A" << std::endl;
+      set_game_mode( LOADING );
       break;
     default:
       set_game_mode( FC_INFOSCREEN );
