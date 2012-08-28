@@ -31,7 +31,7 @@ FCInfoScreen::FCInfoScreen()
 {		
 	pp::Vec2d pos(getparam_x_resolution()/2, 100); //Coordinates are from bottom-left corner of the screen
 	
-	mp_anykeyLbl = new pp::Label(pos,"event_and_cup_label",_("PRESS A TO START, control via Kreuz"));
+	mp_anykeyLbl = new pp::Label(pos,"event_and_cup_label",_("DRÜCKEN SIE A ZUM START - NUTZEN SIE DAS STEUERKREUZ"));
 
 	mp_anykeyLbl->alignment.center();  //use the horizontal center of the text as the placement point
 	mp_anykeyLbl->alignment.top(); //use the top of the text as the placement point
@@ -86,6 +86,7 @@ FCInfoScreen::loop(float timeStep)
 bool
 FCInfoScreen::mouseButtonReleaseEvent(int button, int x, int y)
 {
+:q
   //std::cout << "Button " << button << " pressed." << std::endl;
 	set_game_mode( FC_INFOSCREEN );
 	winsys_post_redisplay();
@@ -115,6 +116,12 @@ FCInfoScreen::keyReleaseEvent(SDLKey key)
     case SDLK_a:
       std::cout << "A" << std::endl;
       set_game_mode( LOADING );
+      break;
+    case SDLK_x:
+      std::cout << "X pressed - exiting." << std::endl;
+      // see main.cpp
+      winsys_shutdown();
+	exit(1);
       break;
     default:
       set_game_mode( FC_INFOSCREEN );
